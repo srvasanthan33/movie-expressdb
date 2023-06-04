@@ -2,7 +2,9 @@ const mongoose = require('mongoose')
 const movieSchema = new mongoose.Schema({
     movieName:{
         type:String,
-        require : true
+        require : true,
+        unique:true
+
     },
     genre:{
         type:Array,
@@ -15,12 +17,14 @@ const movieSchema = new mongoose.Schema({
     releasedYear:{
         type:Number,
         require:true,
-        minimum: 2017,
+        minimum: 1800,
         maximum: 3017
     },
     rating:{
         type:Number,
-        require:true
+        require:true,
+        minimum: 1,
+        maximum: 10
     }
 })
 
