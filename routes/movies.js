@@ -1,8 +1,22 @@
 const express = require('express')
 const router = express.Router()
+const movieModel = require('../models/movies')
 
-router.get('/',(request,response) => {
-    response.send('get request')
+
+router.get('/',async (request,response) => {
+    try{
+        const data = await movieModel.find()
+        response.json(data)
+    }
+    catch(error){
+            response.status(500).json({
+                message:error.message
+            })
+    }
+})
+
+router.get('/:id',(request,response) => {
+    response.send(request.params.id)
 })
 
 router.post('/',(request,response) => {

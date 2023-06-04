@@ -7,5 +7,19 @@ const movieSchema = new mongoose.Schema({
     genre:{
         type:Array,
         require:true
+    },
+    language:{
+        type:String,
+        require:true
+    },
+    releasedYear:{
+        type:Number,
+        require:true
+    },
+    rating:{
+        type:Number,
+        require:true
     }
 })
+
+module.exports = mongoose.model('movieModel',movieSchema)
