@@ -15,12 +15,26 @@ router.get('/',async (request,response) => {
     }
 })
 
-router.get('/:id',(request,response) => {
-    response.send(request.params.id)
-})
+// router.get('/:id',async (request,response) => {
+    
+// })
 
-router.post('/',(request,response) => {
-    response.send('post request')
+router.post('/',async (request,response) => {
+    const newMovie = new movieModel({
+
+        movieName : request.body.movieName,
+        genre : request.body.genre,
+        language : request.body.language,
+        releasedYear : request.body.releasedYear
+
+    })
+    try{
+        const movie = await newMovie.save()
+        response.status(200).json(movie)
+    }
+    catch(error){
+        response.status(500).json({message:error})
+    }
 })
 
 router.patch('/:id',(request,response) => {

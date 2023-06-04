@@ -14,7 +14,9 @@ const movieSchema = new mongoose.Schema({
     },
     releasedYear:{
         type:Number,
-        require:true
+        require:true,
+        minimum: 2017,
+        maximum: 3017
     },
     rating:{
         type:Number,
