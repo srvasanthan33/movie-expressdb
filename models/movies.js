@@ -3,7 +3,8 @@ const movieSchema = new mongoose.Schema({
     movieName:{
         type:String,
         require : true,
-        unique:true
+        unique:true,
+        description :"Movie name must be unique"
 
     },
     genre:{

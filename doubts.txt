@@ -1,1 +1,7 @@
 how collection moviemodels is created
+
+https://www.mongodb.com/docs/manual/core/schema-validation/specify-json-schema/
+
+what is meant by bsontype
+
+
